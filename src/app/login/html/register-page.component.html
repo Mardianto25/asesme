@@ -1,0 +1,98 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 pt-4 text-center">
+      <img src="assets/image/logo_asesme2.png" />
+    </div>
+  </div>
+
+  <div class="row px-5 pb-5 pt-4">
+    <div class="col-md-12">
+      <div class="card rounded-0 border" >
+        <div class="card-headers">
+          <h3 class="mb-0" class="px-3 pt-3">Register</h3>
+        </div>
+        <div class="card-body">
+          <form [formGroup]="FormRegister" class="form">
+            <div class="row">
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="">Username</label>
+                  <input type="text" formControlName="username" class="form-control rounded-0 required">                  
+                </div>
+              </div>
+
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="">Email</label>
+                  <input formControlName="email" type="email" class="form-control rounded-0 required">
+                  <div class="text-danger" *ngIf="!FormRegister.controls['email'].valid && FormRegister.controls['email'].touched">harus type email test@ymail.com</div>                  
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="">Nama Depan</label>
+                  <input type="text" formControlName="first_name" class="form-control rounded-0 required">
+                </div>
+              </div>
+
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="">Nama Belakang</label>
+                  <input formControlName="last_name" type="text" class="form-control rounded-0 required">
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="">Password</label>
+                  <input type="password" formControlName="password" class="form-control rounded-0 required">
+                </div>
+              </div>
+
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="">Re_Password</label>
+                  <input formControlName="re_password" type="password" class="form-control rounded-0 required">
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-6">
+                <div class="form-group">
+                  <button class="form-control btn btn-light" [disabled]="FormRegister.valid" routerLink="../main/beranda">Batal</button>
+                </div>
+              </div>
+
+              <div class="col-md-6">
+                <div class="form-group">
+                  <button  class="form-control btn btn-primary" style="background-color: #e36c00 !important; border:none" (click)="register(FormRegister.value)" [disabled]="!FormRegister.valid">Register</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-12">
+                <div style="margin-top: 20px" *ngIf="master.errorValidasi===false; else errorValidasiMessage">
+                  <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                    <strong>{{master.ambilData}}</strong>
+                    <button type="button" class="close" data-dismiss="alert" (click)="handleError()" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+              </div>
+              <ng-template #errorValidasiMessage>
+                  <div data-dismiss="modal"></div>                                
+              </ng-template>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

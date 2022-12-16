@@ -1,0 +1,108 @@
+<form class="px-2 mt-2" [formGroup]="FormCertificate"> 
+  <h3>Sertifikat</h3>
+  <hr class="my-4" />
+  <div class="row mt-5">
+    <div class="col-md-4">
+      <div class="form-group">
+        <label for="Sertifikat">Nama Sertifikat</label>
+        <input type="text" class="form-control" id="Sertifikat" formControlName="name" placeholder="Sertifikat">
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="form-group">
+        <label for="Organisasi">Organisasi</label>
+        <input type="text" class="form-control" id="Organisasi" formControlName="organization" placeholder="Organisasi">
+      </div>
+    </div>
+    <div class="col-md-4">
+      <label for="Penerimaan">Tahun Penerimaan</label>
+      <select class="form-control" formControlName="received_year" id="Penerimaan">
+        <option value="" selected>Tahun </option> 
+        <option *ngFor="let th of tahun">{{th}} </option>                        
+      </select>
+      <!-- <input type="text" maxlength="4" class="form-control" id="Penerimaan" formControlName="received_year" placeholder="Tahun"> -->
+    </div>
+  </div>
+  <div class="row mt-3">
+    <div class="col-md-12">
+      <button class="btn btn-primary" (click)="simpan(FormCertificate.value)" [disabled]="!FormCertificate.valid"> Simpan </button>
+    </div>
+  </div>
+  <div class="row mt-3 mb-3">
+    <div class="col-md-12">
+      <div class="table-responsive-md">
+        <table class="table">
+          <!-- <caption>List </caption> -->
+          <thead>
+            <tr>
+              <th scope="col">Nama Sertifikat</th>
+              <th scope="col">Organisasi</th>
+              <th scope="col">Tahun Penerimaan </th>
+              <th scope="col" class="text-center">Action</th>
+            </tr>
+          </thead>
+          <tbody *ngFor="let sf of data">
+            <tr>
+              <th>{{sf.name}}</th>
+              <td>{{sf.organization}}</td>
+              <td>{{sf.received_year}}</td>
+              <td class="text-center">      
+                <div class="btn-group" role="group" aria-label="Basic example">          
+                  <button class="btn btn-success float-right"  data-toggle="modal" data-target="#ModalSertifikat"   (click)="openClick(sf)"><i class="fa fa-pencil"></i></button>
+                  <button class="btn btn-danger float-left" (click)="delete(sf)"><i class="fa fa-trash"></i></button>                
+                </div>
+              </td>
+
+            </tr>
+            
+          </tbody>                          
+        </table>
+      </div>
+    </div>
+  </div>
+</form>
+<form [formGroup]="FormModal">
+
+  
+  <!-- Modal -->
+  <div class="modal fade" id="ModalSertifikat" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Form Data Sertifikat</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="row">
+            <div class="col-md-4">
+              <div class="form-group">
+                <label for="Sertifikat">Nama Sertifikat</label>
+                <input type="text" class="form-control" id="nameModal" formControlName="name" placeholder="Sertifikat">
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="form-group">
+                <label for="Organisasi">Organisasi</label>
+                <input type="text" class="form-control" id="organizationModal" formControlName="organization" placeholder="Organisasi">
+              </div>
+            </div>
+            <div class="col-md-4">
+              <label for="received_yearModal">Tahun Penerimaan</label>
+              <select class="form-control" formControlName="received_year" id="received_yearModal">
+                <option value="" selected>Tahun </option> 
+                <option *ngFor="let th of tahun">{{th}} </option>                        
+              </select>
+              <!-- <input type="text" maxlength="4" class="form-control" id="received_yearModal" formControlName="received_year" placeholder="Tahun"> -->
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary" (click)="update(FormModal.value)" data-dismiss="modal">Update</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>

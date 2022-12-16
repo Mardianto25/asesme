@@ -1,0 +1,186 @@
+<form class="px-2 mt-2" [formGroup]="FormPendidikan">
+  <h3>Pendidikan</h3>
+  <hr class="my-4" />
+  <div class="row mt-5">
+    <div class="col-md-6">
+      <div class="form-group">
+        <label for="NamaSekolah">Nama Sekolah</label>
+        <input type="text" class="form-control" id="nameModal" formControlName="name" placeholder="Nama Sekolah">
+        <!-- <span>isi nama perusahaan anda / organisasi anda</span> -->
+      </div>  
+    </div>
+    <div class="col-md-6">
+      <div class="form-group">
+        <label for="Jurusan">Jurusan</label>
+        <input type="text" class="form-control" id="majorModal" formControlName="major" placeholder="Jurusan">
+        <!-- <span>isi nama perusahaan anda / organisasi anda</span>                       -->
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <div class="form-group">
+        <label for="Jenjang">Jenjang Pendidikan</label>
+        <select name="" id="Jenjang" formControlName="grade" class="form-control">
+          <option value="" selected>Pendidikan</option> 
+          <option *ngFor="let grades of grade">{{grades}}</option>                         
+        </select>
+        <!-- <span>isi nama perusahaan anda / organisasi anda</span>                         -->
+      </div>  
+    </div>
+    <div class="col-md-6">
+      <div class="form-group">
+        <label for="Ipk">IPK / Rata-rata nilai</label>
+        <input type="text" class="form-control" id="Ipk" formControlName="ipk" placeholder="Rata-rata nilai">
+        <!-- <span>isi nama perusahaan anda / organisasi anda</span>                         -->
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <div class="form-group">
+        <label for="SejakPendidikan">Sejak</label>
+        <select class="form-control" formControlName="since" id="SejakPendidikan">
+          <option value="" selected>Tahun Masuk </option> 
+          <option *ngFor="let since of tahun">{{since}} </option>                        
+        </select>
+        <!-- <span>isi nama perusahaan anda / organisasi anda</span>                         -->
+      </div>  
+    </div>
+    <div class="col-md-6">
+      <div class="form-group">
+        <label for="SampaiPendidikan">Sampai</label>
+        <select class="form-control" formControlName="to" id="SampaiPendidikan">
+          <option value="" selected>Tahun Keluar </option> 
+          <option *ngFor="let to of tahun">{{to}} </option>                        
+        </select>
+        <!-- <span>isi nama perusahaan anda / organisasi anda</span>                         -->
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <button class="btn btn-primary" (click)="simpan(FormPendidikan.value)" [disabled]="!FormPendidikan.valid"> Simpan </button>
+    </div>
+  </div>
+  <div class="row mt-3">
+    <div class="col-md-12">
+      <div class="table-responsive-md">
+        <table class="table">
+          <!-- <caption>List</caption> -->
+          <thead>
+            <tr>
+              <th scope="col">Nama Sekolah</th>
+              <th scope="col">Jurusan</th>
+              <th scope="col">Jenjang Pendidikan</th>
+              <th scope="col">IPK</th>                              
+              <th scope="col">Sejak</th>
+              <th scope="col">Sampai</th>
+              <th scope="col" class="text-center">Action</th>
+            </tr>
+          </thead>
+          <tbody *ngFor="let ed of detailEducation">
+            <tr>
+              <th scope="row">{{ed.name}}</th>
+              <td>{{ed.major}}</td>
+              <td>{{ed.grade}}</td>
+              <td>{{ed.ipk}}</td>
+              <td>{{ed.since}}</td>
+              <td>{{ed.to}}</td>
+              <td class="text-center">                
+                <div class="btn-group" role="group" aria-label="Basic example">
+                  <button class="btn btn-success float-right"  data-toggle="modal" data-target="#ModalPendidikan"   (click)="openClick(ed)"><i class="fa fa-pencil"></i></button>                  
+                  <button class="btn btn-danger float-left" (click)="delete(ed)"><i class="fa fa-trash"></i></button>               
+                </div>
+              </td>
+            </tr>
+            
+          </tbody>                          
+        </table>
+      </div>
+    </div>
+  </div>
+</form>
+
+<form [formGroup]="FormModal">
+  
+  <!-- Modal -->
+  <div class="modal fade" id="ModalPendidikan" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Form Data Pendidikan</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="NamaSekolah">Nama Sekolah</label>
+                  <input type="text" class="form-control" hidden="hidden" id="idModal" formControlName="id" placeholder="Nama Sekolah">        
+                  <input type="text" class="form-control" id="nameModal" formControlName="name" placeholder="Nama Sekolah">
+                <!-- <span>isi nama perusahaan anda / organisasi anda</span> -->
+              </div>  
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="Jurusan">Jurusan</label>
+                <input type="text" class="form-control" id="majorModal" formControlName="major" placeholder="Jurusan">
+                <!-- <span>isi nama perusahaan anda / organisasi anda</span>                       -->
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="Jenjang">Jenjang Pendidikan</label>
+                <select name="" id="gradeModal" formControlName="grade" class="form-control">
+                  <option *ngFor="let grades of grade">{{grades}}</option>                         
+                </select>
+                <!-- <span>isi nama perusahaan anda / organisasi anda</span>                         -->
+              </div>  
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="Ipk">IPK / Rata-rata nilai</label>
+                <input type="text" class="form-control" id="ipkModal" formControlName="ipk" placeholder="Rata-rata nilai">
+                <!-- <span>isi nama perusahaan anda / organisasi anda</span>                         -->
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="sinceModal">Sejak</label>
+                <select class="form-control" formControlName="since" id="sinceModal">
+                  <option value="" selected>Tahun Masuk </option> 
+                  <option *ngFor="let since of tahun">{{since}} </option>                        
+                </select>
+                <!-- <input type="text" class="form-control" maxlength="4" id="sinceModal" formControlName="since" placeholder="Tahun Masuk"> -->
+                <!-- <span>isi nama perusahaan anda / organisasi anda</span>                         -->
+              </div>  
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="toModal">Sampai</label>
+                <select class="form-control" formControlName="to" id="toModal">
+                    <option value="" selected>Tahun Keluar </option> 
+                    <option *ngFor="let to of tahun">{{to}} </option>                        
+                  </select>
+                <!-- <input type="text" class="form-control" maxlength="4" id="toModal" formControlName="to" placeholder="Tahun Keluar"> -->
+                <!-- <span>isi nama perusahaan anda / organisasi anda</span>                         -->
+              </div>
+            </div>
+          </div>
+          
+        </div>
+        <div class="modal-footer">
+            <button class="btn btn-secondary form-control"  data-dismiss="modal"> Cancel </button>          
+            <button class="btn btn-primary update form-control" (click)="update(FormModal.value)" data-dismiss="modal"> Update </button>  
+        </div>
+      </div>
+    </div>
+  </div>
+</form>

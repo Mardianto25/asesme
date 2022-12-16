@@ -1,0 +1,216 @@
+<section class="section banner pt-1">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6">
+        <div class="card card-custom" >
+          <div class="row">
+            <div class="col-md-12">
+              <img class="card-img-top p-4" src="assets/image/caption-alat-test-asesme.png" />
+            </div>
+          </div>
+
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="card" style="background-color: #FF7900; width: 100%">
+          <div class="row px-4 pb-4">
+            <div class="col-md-12 ">
+              <img class="card-img-top p-4" src="assets/image/icon-alat-test.png" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row" class="margin">
+      <div class="col-md-6">
+        <div class="card card-custom" >
+          <form [formGroup]="rForm">
+            <div *ngIf="!alert==true" class="row px-3 mt-1">
+              <div class="col-md-12">
+                <div  class="alert alert-warning alert-dismissible fade show" role="alert">
+                  <strong>Maaf...</strong> Username atau Password Anda Salah
+                  <button type="button" class="close" (click)="alertStatus()" data-dismiss="alert"  aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+              </div> 
+            </div>
+            <div class="row px-3 mt-1">
+              <div class="col-md-12">
+                <div class="form-group" [ngClass]="displayFieldCss('username')">
+                  <input type="text" class="form-control" formControlName="username" placeholder="Username"/> 
+                  <app-form-error [displayError]="isFieldValid('username')" errorMsg="The username field is required."></app-form-error>           
+                </div>
+              </div>
+            </div>
+  
+            <div class="row p-3 ">
+              <div class="col-md-12">
+                <div class="form-group" [ngClass]="displayFieldCss('password')">
+                  <input type="password" formControlName="password" class="form-control" placeholder="Password"/>  
+                  <app-form-error [displayError]="isFieldValid('password')" errorMsg="The password field is required."></app-form-error>                                           
+                </div> 
+              </div>
+            </div>
+  
+            <div class="row p-3 ">
+              <div class="col-md-6">
+                <div class="form-group">
+                  <button class="form-control btn btn-primary" (click)="onSubmit(rForm.value)">Saya Mau Tes</button>                  
+                </div>
+              </div>
+  
+              <div class="col-md-6">
+                <div class="form-group">
+                  <button class="form-control btn btn-light" data-toggle="modal" data-target="#loginModal">Buat Akun ? </button>                  
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- <section class="section p-4" style="background-color: white !important">
+  <div class="container">
+    <div class="row " style="height: auto;">
+      <div class="col-md-12">
+          <div class="row">
+            <div class="col-md-8 float-left text-left px-4 py-2">
+              <p><strong> Promo <span style="color: #FF7900">5 Alat Tes Gratis</span></strong></p>
+            </div>
+            <div class="col-md-4 float-right text-right px-4 py-2">
+              <a (click)="lihatDetail()" style="cursor: pointer; color: #2D82EF">Lihat Semua</a>
+            </div>
+          </div>
+        <ngx-slick-carousel class="carousel" 
+              #slickModal="slick-carousel" 
+              [config]="slideConfig">
+            <div ngxSlickItem *ngFor="let sld of slideFree " class="slide">
+                <div class="card mx-2" style="width: auto; border: none;">
+                  <div class="p-5 mx-auto bg text-center" >
+                      <img src="{{sld.pictures}}" style="width: 150px; height: 150px" class="mx-auto" />  
+                      <p style="color: white">{{sld.name}}</p> 
+                      <p class="text-white" innerHtml="{{sld.descriptions | slice:0:180}}"></p>
+                      <button class="btn btn-primary1 px-5" routerLink="../alat-tes-detail/{{sld.package_id}}" data-toggle="modal" data-target="#exampleModalLong" > Lihat Detail ...</button>
+                      
+                  </div>
+                </div>
+            </div>
+        </ngx-slick-carousel>
+      </div>
+    </div>
+  </div>
+</section> -->
+
+  <section class="section" style="background-color: white !important">
+    <div class="container">
+      <div class="row" style="height: auto;">
+        <div class="col-md-12">
+          <div class="row">
+            <div class="col-md-8 float-left text-left px-4 py-2">
+              <p><strong> Promo <span style="color: #FF7900">5 Alat Tes Gratis</span></strong></p>
+            </div>
+            <div class="col-md-4 float-right text-right px-4 py-2">
+              <a (click)="lihatDetail()"  style="cursor: pointer; color: #2D82EF">Lihat Semua</a>
+            </div>
+          </div>
+          <!-- Flickity HTML init -->
+
+          <ngx-slick-carousel class="carousel" 
+                #slickModal="slick-carousel" 
+                [config]="slideConfig">
+              <div ngxSlickItem *ngFor="let sld of slideFree " class="slide p-1">
+                <div class="card border mx-2" style="width: auto;">
+                  <div class="p-5 mx-auto bg text-center" >
+                      <img src="{{sld.pictures}}" style="width: 150px; height: 150px" class="mx-auto" />  
+                      <p style="color: white">{{sld.name}}</p> 
+                      <!-- <p class="text-gray" innerHtml="{{sld.descriptions | slice:0:100}}"></p> -->
+                      <button class="btn btn-primary1 px-5" routerLink="../alat-tes-detail/{{sld.package_id}}" data-toggle="modal" data-target="#exampleModalLong" > Lihat Detail ...</button>      
+                  </div>
+                </div>
+              </div>
+          </ngx-slick-carousel>
+        </div>
+      </div>
+    </div>
+  </section> 
+
+  <section class="section" style="background-color: white !important">
+    <div class="container">
+      <div class="row" style="height: auto;">
+        <div class="col-md-12">
+          <div class="row">
+            <div class="col-md-8 float-left text-left px-4 py-2">
+              <p><strong> Alat Tes <span style="color: #FF7900">Rekomendasi</span></strong></p>
+            </div>
+            <div class="col-md-4 float-right text-right px-4 py-2">
+              <a (click)="lihatDetail()"  style="cursor: pointer; color: #2D82EF; ">Lihat Semua</a>
+            </div>
+          </div>
+          <!-- Flickity HTML init -->
+
+          <ngx-slick-carousel class="carousel" 
+                #slickModal="slick-carousel" 
+                [config]="slideConfig">
+              <div ngxSlickItem *ngFor="let sld of slideBuy " class="slide p-1">
+                <div class="card border mx-2" style="width: auto;">
+                  <div class="p-5 mx-auto bg-buy text-center" >
+                      <img src="{{sld.pictures}}" style="width: 150px; height: 150px" class="mx-auto" />  
+                      <p style="color: black">{{sld.name}}</p> 
+                      <!-- <p class="text-gray" innerHtml="{{sld.descriptions | slice:0:100}}"></p> -->
+                      <button class="btn btn-primary1 px-5" routerLink="../alat-tes-detail/{{sld.package_id}}" data-toggle="modal" data-target="#exampleModalLong" > Lihat Detail ...</button>      
+                  </div>
+                </div>
+              </div>
+          </ngx-slick-carousel>
+        </div>
+      </div>
+    </div>
+  </section>  
+
+
+  <div class="modal rollIn animated" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content" style="padding-top: 2px !important">
+        <div class="modal-header">
+          <h3 class="modal-title" id="exampleModalLongTitle">Hai Guys, Kamu Sudah Siap ???</h3>
+          <button type="button" class="close animated" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="row">
+            <div class="col-md-12 px-3 m-1">
+              <button class="btn btn-primary text-left p-3 btn-block" (click)="socialSignIn('google')" style="background-color: red; border: solid red;" data-dismiss="modal"><i class="fa fa-google mr-3" style="font-size: 20px"></i>Masuk Dengan Akun Google</button>              
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12 px-3 m-1">
+              <button class="btn btn-primary text-left p-3 btn-block" (click)="socialSignIn('facebook')" style=" background-color: rgb(92, 130, 235); border: solid rgb(92, 130, 235);" data-dismiss="modal"><i class="fa fa-facebook  mr-3" style="font-size: 20px"></i>Masuk Dengan Akun Facebook</button>                            
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12 px-3 m-1">
+              <button class="btn btn-primary text-left p-3 btn-block" (click)="socialSignIn('linkedin')" data-dismiss="modal"><i class="fa fa-linkedin  mr-3" style="font-size: 20px"></i>Masuk Dengan Akun LinkedIn</button>                            
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12 px-3 m-1">
+              <div class="form-group">
+                <button class="btn btn-primary text-left p-3 btn-block" routerLink="../../login" style="background-color: #5e5e5e; border:none" data-dismiss="modal"><i class="fa fa-pencil mr-3" style="font-size: 20px"></i>  Masuk Dengan Akun Asesme</button>                              
+              </div>
+            </div>
+          </div>
+          
+
+        </div>
+        <div class="modal-footer" style="background-color: #ff7900; padding: 1px 0px !important">
+  
+        </div>
+      </div>
+    </div>
+  </div>

@@ -1,0 +1,139 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container">
+    <a class="navbar-brand " style="color: whitesmoke"><img src="assets/image/asesme_logo_beta.png"></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <div class="mr-auto ">
+        
+      </div>
+
+      <ul class="navbar-nav my-2 my-lg-0" *ngIf="!_login.loggedIn()">
+        <li class="nav-item mx-1">
+          <a class="nav-link" routerLink="./beranda">Beranda </a>
+        </li>
+        <li class="nav-item mx-1">
+          <a class="nav-link" routerLink="./about">Tentang Asesme</a>
+        </li>
+        <li class="nav-item mx-1">
+          <a class="nav-link" routerLink="./contact">Kontak</a>
+        </li>
+        <li class="nav-item mx-1" style="cursor: pointer;">
+          <a class="nav-link" data-toggle="modal" data-target="#loginModalMain">Masuk</a>
+        </li>
+      </ul>
+
+      <ul class="navbar-nav my-2 my-lg-0" *ngIf="_login.loggedIn()">
+        <li class="nav-item">
+          <a class="nav-link" routerLink="./me/dashboard">Dashboard </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="./me/loker">Loker</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="./me/meme">Meme</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Action
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" (click)="pesanUrl()" style="cursor: pointer;">Pesan</a>
+            <a class="dropdown-item" (click)="Url()" style="cursor: pointer;">Update Profile</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" (click)="_login.logoutUser()" style="cursor: pointer;">Keluar </a>
+          </div>
+        </li>
+      </ul>
+
+    </div>  
+  </div>
+</nav>
+<div class="body">
+  <router-outlet></router-outlet>    
+</div>
+
+
+<div class="container">
+  <div class="row pt-3">
+    <div class="col-md-3">
+      <h3 style="color: #3A95EF"><img src="assets/image/asesme_logo_beta.png"></h3>
+
+      <p class="mt-5" style="color: #3A95EF">
+          Syarat & Ketentuan
+      </p>
+      <p style="color: #3A95EF">Kebijakan Privasi</p>
+    </div>
+    <div class="col-md-4">
+      <h4 style="color: #FF7900; font-weight: bold"> Kontak Kami</h4>
+      <p class="mt-5">Ruko Food Arcade CG 3-5 GWalk, Citraland, Surabaya
+          Hand Phone: 0878.5327.5086</p>
+    </div>
+    <div class="col-md-5">
+      <h4 style="color: #FF7900; font-weight: bold"> Tentang Asesme</h4>
+      <p class="mt-5">
+          Kami merupakan platform media asesmen dan pembelajaran terdepan yang menjadi sahabat Anda untuk mengoptimalkan pengenalan diri, sehingga dapat memaksimalkan potensi setiap pribadi. Secara profesional, kami menciptakan produk berkualitas (world class quality), menyenangkan, inovatif, fleksibel, dan akurat.
+      </p>
+
+      <ul class="ul">
+        <li class="mr-2"><a href="#"><i class="fa fa-facebook"></i></a></li>
+        <li class="mr-2"><a href="#"><i class="fa fa-linkedin"></i></a></li>
+        <li class="mr-2"><a href="#"><i class="fa fa-twitter"></i></a></li>          
+      </ul>
+    </div>  
+  </div>
+</div>
+<div class="footer">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <p>Made by asesme</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="modal rollIn animated" id="loginModalMain" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content" style="padding-top: 2px !important">
+        <div class="modal-header">
+          <h3 class="modal-title" id="exampleModalLongTitle">Hai Guys, Kamu Sudah Siap ???</h3>
+          <button type="button" class="close animated" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="row">
+            <div class="col-md-12 px-3 m-1">
+              <button class="btn btn-primary text-left p-3 btn-block" (click)="socialSignIn('google')" style="background-color: red; border: solid red;" data-dismiss="modal"><i class="fa fa-google mr-3" style="font-size: 20px"></i>Masuk Dengan Akun Google</button>              
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12 px-3 m-1">
+              <button class="btn btn-primary text-left p-3 btn-block" (click)="socialSignIn('facebook')" style=" background-color: rgb(92, 130, 235); border: solid rgb(92, 130, 235);" data-dismiss="modal"><i class="fa fa-facebook  mr-3" style="font-size: 20px"></i>Masuk Dengan Akun Facebook</button>                            
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12 px-3 m-1">
+              <button class="btn btn-primary text-left p-3 btn-block" (click)="socialSignIn('linkedin')" data-dismiss="modal"><i class="fa fa-linkedin  mr-3" style="font-size: 20px"></i>Masuk Dengan Akun LinkedIn</button>                            
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12 px-3 m-1">
+              <div class="form-group">
+                <button class="btn btn-primary text-left p-3 btn-block" routerLink="../login" style="background-color: #5e5e5e; border:none" data-dismiss="modal"><i class="fa fa-pencil mr-3" style="font-size: 20px"></i>  Masuk Dengan Akun Asesme</button>                              
+              </div>
+            </div>
+          </div>
+          
+
+        </div>
+        <div class="modal-footer" style="background-color: #ff7900; padding: 1px 0px !important">
+  
+        </div>
+      </div>
+    </div>
+  </div>

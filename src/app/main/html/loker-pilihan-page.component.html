@@ -1,0 +1,95 @@
+<!-- <div class="container">
+    <div class="row mt-5 mb-5 ">
+      <div class="col-md-3 mb-2">
+        <app-sidebar-profile></app-sidebar-profile>
+      </div>
+       
+      <div class="col-md-9 "> -->
+        <div class="row my-2 " style="height: auto;">
+          <div class="col-md-12">
+            <nav aria-label="breadcrumb">
+              <ol class="breadcrumb" style="background-color:transparent">
+                <li class="breadcrumb-item"><a routerLink="../dashboard">Home</a></li>
+                <li class="breadcrumb-item"><a >Lowongan Kerja Pilihan</a></li>
+              </ol>
+            </nav>
+            
+          </div>  
+        </div>
+
+        <div class="row my-2 py-3 mb-5 border" style="background-color: white">
+          <div class="col-md-12">
+            <ul class="nav nav-tabs">
+              <li class="nav-item">
+                <a class="nav-link active" data-toggle="tab" href="#riwayat">Riwayat Lamaran</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" data-toggle="tab" href="#bookmart">Bookmart Lamaran</a>
+              </li>
+            </ul>
+          
+            <!-- Tab panes -->
+            <div class="tab-content">
+              <div id="riwayat" class="container tab-pane active">
+                <div class="table-responsive-md">
+                  <table class="table mt-2">
+                      <thead>
+                      <tr>
+                        <th scope="col">#</th>                      
+                        <th scope="col">Waktu</th>
+                        <th scope="col">Judul</th>
+                        <th scope="col">Perusahaan</th>
+                        <th scope="col">Status</th>
+                      </tr>
+                      </thead>
+  
+                      <tbody>
+                      <tr *ngFor="let dlp of detailLokerPilihan; index as i">
+                        <th scope="row">{{ i + 1 }}</th>
+                        <td>{{ dlp.created_at }}</td>
+                        <td>{{ dlp.job.title }}</td>
+                        <td>{{ dlp.job.institution.institution_name }}</td>
+                        <td *ngIf="dlp.status==0"><button class="btn btn-danger"><i class="fa fa-eye-slash " ></i></button></td>
+                        <td *ngIf="dlp.status==1"><button class="btn btn-success"><i class="fa fa-eye" ></i></button></td>
+                      </tr>
+                      </tbody>
+                    </table>
+                </div>
+              </div>
+              <div id="bookmart" class="container tab-pane fade"> 
+                <div class="table-responsive-md">
+                  <table class="table table-striped mt-2">
+                    <thead>
+                    <tr>
+                      <th scope="col">#</th>
+                      <th scope="col">Waktu</th>
+                      <th scope="col">Judul</th>
+                      <th scope="col">Perusahaan</th>
+                      <th scope="col">Action</th>
+                      
+                    </tr>
+                    </thead>
+  
+                    <tbody>
+                    <tr *ngFor="let db of detailBookmart; index as i">
+                      <th scope="row">{{ i + 1 }}</th>
+                      <td>
+                        {{db.job.created_at}}
+                      </td>
+                      <td>{{ db.job.title }}</td>
+                      <td>{{ db.job.institution.institution_name }}</td>
+                      <td><button class="btn btn-danger" (click)="deleteBookmart(db.id)"><i class="fa fa-trash " ></i></button></td>
+
+                    </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>             
+          </div>
+        </div>
+
+        
+      <!-- </div>
+    </div>
+</div> -->

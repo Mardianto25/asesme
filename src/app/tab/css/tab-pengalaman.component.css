@@ -1,0 +1,12 @@
+.my-4 {
+    background-color: dimgrey;
+    opacity: 0.4;
+}
+
+
+@media (max-width:767px) {
+    .modal-options{
+        max-width: 94% !important;
+    }
+
+}

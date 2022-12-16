@@ -1,0 +1,117 @@
+<form class="px-2 mt-2" [formGroup]="FormBahasa">
+  <h3>Bahasa</h3>
+  <hr class="my-4" />
+  <div class="row mt-5">
+    <div class="col-md-4">
+      <div class="form-group">
+        <label for="Bahasa">Bahasa</label>
+        <select id="Bahasa" formControlName="language" class="form-control">
+          <option value="" selected>Bahasa</option>
+          <option *ngFor="let bs of bahasa">{{bs}}</option>                          
+        </select>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="form-group">
+        <label for="Menulis">Kemampuan Menulis</label>
+        <select id="Menulis" formControlName="writing" class="form-control">
+          <option value="" selected>Menulis</option>
+          <option *ngFor="let mn of menulis">{{mn}}</option>                                                                                                                                
+        </select>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <label for="Membaca">Kemampuan Membaca</label>
+      <select id="Membaca" formControlName="speaking" class="form-control">
+        <option value="" selected>Membaca</option>
+        <option *ngFor="let mb of membaca">{{mb}}</option>                                                                                                                                
+      </select>
+    </div>
+  </div>
+  <div class="row mt-3">
+    <div class="col-md-12">
+      <button class="btn btn-primary" (click)="simpan(FormBahasa.value)" [disabled]="!FormBahasa.valid"> Simpan </button>
+    </div>
+  </div>
+  <div class="row mt-3 mb-3">
+    <div class="col-md-12">
+      <div class="table-responsive-md">
+        <table class="table">
+          <!-- <caption>List </caption> -->
+          <thead>
+            <tr>
+              <th scope="col">Bahasa</th>
+              <th scope="col">Kemampuan Menulis</th>
+              <th scope="col">Kemampuan Membaca</th>
+              <th scope="col" class="text-center">Action</th>
+            </tr>
+          </thead>
+          <tbody *ngFor="let lg of detailLanguage">
+            <tr>
+              <th>{{lg.language}}</th>
+              <td>{{lg.writing}}</td>
+              <td>{{lg.speaking}}</td>
+              <td class="text-center">          
+                <div class="btn-group" role="group" aria-label="Basic example">
+                  <button class="btn btn-success float-right" id={{lg.id}} data-toggle="modal" data-target="#ModalBahasa"   (click)="openClick(lg)"><i class="fa fa-pencil"></i></button>                  
+                  <button class="btn btn-danger float-left" (click)="delete(lg)"><i class="fa fa-trash"></i></button>                                
+                </div>      
+              </td>
+            </tr>
+            
+          </tbody>                          
+        </table>
+      </div>
+    </div>
+  </div>
+</form>
+<form [formGroup]="FormModal">
+  <!-- Modal -->
+  <div class="modal fade" id="ModalBahasa" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Form Data Bahasa</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="row">
+            <div class="col-md-4">
+              <div class="form-group">
+                <input type="text" hidden="hidden" class="form-control" id="idModal" formControlName="id" />
+
+                <label for="Bahasa">Bahasa</label>
+                <select id="languageModal" formControlName="language" class="form-control">
+                  <option disabled="disabled">Bahasa</option>
+                  <option *ngFor="let bs of bahasa">{{bs}}</option>                          
+                </select>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="form-group">
+                <label for="Menulis">Menulis</label>
+                <select id="writingModal" formControlName="writing" class="form-control">
+                  <option disabled="disabled">Menulis</option>
+                  <option *ngFor="let mn of menulis">{{mn}}</option>                                                                                                                                
+                </select>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <label for="Membaca">Membaca</label>
+              <select id="speakingModal" formControlName="speaking" class="form-control">
+                <option disabled="disabled">Membaca</option>
+                <option *ngFor="let mb of membaca">{{mb}}</option>                                                                                                                                
+              </select>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary update" (click)="update(FormModal.value)" data-dismiss="modal">Update</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>

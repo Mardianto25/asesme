@@ -1,0 +1,54 @@
+
+/* external css: flickity.css */
+
+
+* {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+  }
+  
+  body { font-family: sans-serif; }
+  
+/* .border {
+    border: 1px solid #0069D9 !important; 
+    color: #0069D9 !important;
+    margin-bottom: 15px !important;
+    padding: 7px
+}
+
+.border:hover {
+    border: 1px solid whitesmoke; 
+    color:#0069D9 !important;
+    background-color: #c4c4c4
+} */
+
+.class-img {
+    width: 150px;
+    height: 150px;
+}
+
+.close:hover {
+    -webkit-animation-name: rotateIn;
+    animation-name: rotateIn;
+}
+
+
+
+
+@media  (min-width : 767px) and (max-width : 1024px) {
+    .class-img {
+        width: 85px !important;
+        height: 85px !important;
+        border-radius: 50%
+    }
+}
+
+@media (max-width: 767px) {
+    .class-img {
+        width: 180px;
+        height: 180px;
+        border-radius: 50%
+    }
+}
+
+

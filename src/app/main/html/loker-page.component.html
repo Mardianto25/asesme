@@ -1,0 +1,99 @@
+<!-- <div class="container">
+    <div class="row pt-5 pb-5">
+      <div class="col-md-3 mb-2">
+          <app-sidebar-profile></app-sidebar-profile>
+      </div>
+  
+      <div class="col-md-9 "> -->
+        <div class="row mb-3" style="height: auto;">
+          <div class="col-md-12">
+            <nav aria-label="breadcrumb">
+              <ol class="breadcrumb" style="background-color:transparent">
+                <li class="breadcrumb-item"><a routerLink="../dashboard">Home</a></li>
+                <li class="breadcrumb-item"><a>Semua Lowongan Pekerjaan</a></li>
+              </ol>
+            </nav>
+            <!-- <h6>Home   <i class="fa fa-angle-right fa-font"></i>  Semua Lowongan Pekerjaan </h6>
+            <hr /> -->
+          </div>
+        </div>
+        <div>
+          <h5 class="mb-4"><strong> Semua Lowongan Pekerjaan </strong></h5>
+          <form [formGroup]="FormJob">
+            <div class="row">
+              <div class="col-md-4">
+                <div class="form-group">
+                  <angular2-multiselect 
+                    [data]="detailSelect.job_positions" 
+                    [settings]="settings" 
+                    formControlName="position">
+                  </angular2-multiselect>
+                </div>
+              </div>
+              <div class="col-md-3">
+                <div class="form-group">
+                  <select class="form-control" id="inlineFormCustomSelect" formControlName="location">
+                    <option value="" selected>Semua location</option>
+                    <option *ngFor="let lc of detailSelect.locations">{{lc.location}}</option>
+                    
+                  </select>
+                </div>
+              </div>
+              <div class="col-md-3">
+                <div class="form-group">
+                  <select class="form-control" id="inlineFormCustomSelect" formControlName="education">
+                    <option value="" selected>Semua Pendidikan</option>
+                    <option *ngFor="let ed of detailSelect.educations">{{ed.grade}}</option>
+                  </select>
+                </div>
+              </div>
+              <div class="col-md-2">
+                <div class="form-group">
+                  <button class="btn btn-primary btn-md btn-block" (click)="search(FormJob.value)"> Cari </button>
+                </div>
+              </div>         
+            </div>
+          </form>
+        </div>
+        <div  class="px-3 pb-5 pt-3" infiniteScroll [infiniteScrollDistance]="2" [infiniteScrollThrottle]="50" (scrolled)="onScroll()" [scrollWindow]="false" style="height: 700px; overflow-y: scroll; overflow-x: hidden">
+          <div class="row mt-3"  *ngFor="let loker of master.itemsToShow">
+            <div class="col-md-12">
+              <div class="card border" style="width: auto; background-color: #E9ECEF !important; border:none">
+                <div class="card-body">
+  
+                  <h5 class="card-title" routerLink="../detail-loker/{{loker.id}}">{{loker.title}} </h5>
+                  <hr class="my-4">                
+                  <p class="card-text" innerHtml={{loker.description}}></p>
+                </div>
+                <div class="card-body">
+                  <div class="lead float-right">
+                    <a *ngIf="loker.bookmark.status===1; else show" hidden="hidden" class="btn btn-primary btn-md mr-4 text-white" (click)="applyBookmart(loker.id)">Simpan</a>                    
+                    <ng-template #show> 
+                    <a  class="btn btn-primary btn-md mr-4 text-white" (click)="applyBookmart(loker.id)">Simpan</a>                                                              
+                    </ng-template>
+                    <button class="btn btn-light text-dark" [ngbPopover]="popContent" container="body">Bagikan</button>
+                    <ng-template #popContent >
+                      <share-buttons 
+                        theme="modern-dark"
+                        [exclude]="['reddit','tumblr','mix','vk','telegram','messenger','whatsapp','xing','line','sms','email','print','copy']" 
+                        [show]="4"
+                        [size]="-4" 
+                        [showText]="true"
+                        [showCount]="true"
+                        [autoSetMeta]="false" 
+                       >
+                      </share-buttons>
+                    </ng-template>
+                  </div>
+                </div>
+              </div>
+            </div>
+          
+          </div>
+        </div>
+
+
+        
+      <!-- </div>
+    </div>
+</div> -->

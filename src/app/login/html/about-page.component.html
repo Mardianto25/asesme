@@ -1,0 +1,67 @@
+<section class="banner-about">
+  <div class="container ">
+    <div class="row ">
+      <div class="col-md-12">
+        <h2 style="text-align: center; font-weight: bold;">Apa itu Asesme</h2>
+        <p style="text-align: center; font-weight: 400;" class="text-center pt-2">Halo Profesional Muda Indonesia,
+            Karir yang sehat dan meningkat tentunya selalu menjadi keinginan kita semua. Kami yakin, Anda yang terkoneksi dengan Asesme adalah pribadi yang ingin mengenal jauh potensi dan pribadinya, doyan belajar, dan memiliki fokus pada pengembangan diri untuk karir yang lebih berkualitas. Asesme tidak hanya menyediakan medis asesmen untuk Anda lebih mengenal pribadi dan potensi, namun juga merupakan platform pembelajaran yang berkualitas. </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container text-center pb-1 pt-5 px-5">
+    <h2>Perusahaan Karir di Indonesia</h2>
+    <p style="font-size: 13px">Profesional di balik Asesme Selama lebih dari 15 tahun, para professional kami sudah terjun dalam proses pengembangan manusia dan teknologi. Setiap produk kami menggunakan platform digital yang sederhana, efektif, dan akurat. Tentunya, tim kami yang ceria, kreatif, fleksibel dan memiliki orientasi terhdap hasil, akan terus menjadi: </p>
+    <h6 style="font-weight: bold">“Best partner to find the BEST of YOU!” </h6>
+    <div class="row p-4">
+      <div class="col-md-6 my-1">
+          <div class="card p-4" style="background-color: #FF7900 !important">
+            <h5 class="card-title text-white" style="font-weight: bold">
+              Lihat Lowongan Pekerjaan
+            </h5>
+            <p class="card-text text-white" style="font-size: 14px">
+              perusahaan terbaik yang menjadi partner kami, sudah menyediakan <span style="cursor: pointer; text-decoration: underline;" (click)="home()">pekerjaan</span> yang sesuai, <br />terbaik dan bonafit untuk Anda.
+            </p>
+          </div>
+      </div>
+      <div class="col-md-6 my-1">
+          <div class="card p-4" style="background-color: #FF7900 !important">
+            <h5 class="card-title text-white" style="font-weight: bold">
+              Ikuti Tes
+            </h5>
+            <p class="card-text text-white" style="font-size: 14px">
+                Kunjungi <span style="cursor: pointer; text-decoration: underline;" (click)="allTes()">halaman test</span>, lakukan pendaftaran dan mulai ikuti tes psikologis untuk menambah pengetahuan dalam melakukan pencarian kerja di perusahaan-perusahaan.
+            </p>
+          </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container text-center pt-3 px-5" style="padding-bottom: 120px !important">
+    <hr class="px-5 py-2" />
+    <h3>Testimonials</h3>
+    <p  style="font-size: 14px">Apa yang mereka katakan yang pernah menggunakan alat test dari asesme</p>
+    <div class="row">
+      <div class="col-md-12">      
+        <ngx-slick-carousel class="carousel" 
+          #slickModal="slick-carousel" 
+          [config]="master.slideDashboard">
+
+          <div ngxSlickItem *ngFor="let sld of slideFree " class="slide mx-1 py-2">
+            <div class="card mx-1 border" style="width: 98%; ">
+              <div class="py-5 px-3 mx-auto text-center" style="width: auto; height: auto; background-color: transparent; border-radius: 3% 3% 3% 3%">
+                  <img src="assets/image/dede.jpg" style="width: 120px; height: 120px; border-radius: 50%" class="mx-auto" />  
+                  <p class="my-3" style="font-size: 14px">ini media karir yang cepat dan transparan. Saya sudah pakai dua kali untuk galang dana bencana ...</p> 
+              </div>
+            </div>
+      
+          </div>
+        </ngx-slick-carousel>
+      </div>
+    </div>
+  </div>
+</section>

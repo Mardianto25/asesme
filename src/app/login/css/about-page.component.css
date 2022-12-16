@@ -1,0 +1,14 @@
+.banner-about{
+    background-image: url(https://asesme.com/web_asesme/images/xhead_about.jpg.pagespeed.ic.nek-RuDooK.webp);
+    width: 100%;
+    padding: 60px;
+    color: #fff;
+    text-align: center;
+}
+
+
+@media (max-width:767px) {
+    
+
+
+}

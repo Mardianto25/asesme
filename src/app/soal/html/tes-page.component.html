@@ -1,0 +1,134 @@
+<div id="wrapper">  
+  <div id="sidebar-wrapper">
+    <nav id="spy">
+      <header class="text-center">
+        <h3>Panel Jawaban</h3>
+        <label class="btn red btn-outline btn-circle btn-sm timerBox"></label><br/>
+        <button type="button" class="btn btn-primary" onclick="preFinish()" style="margin-top: 15px;">Selesai</button><br/>
+        <small>*Pengguna smartphone geser kiri untuk membuka panel, sebaliknya untuk menutup panel.</small>
+        <hr/>
+      </header>
+      <section style="padding: 10px;">
+        <!-- <a style="width:50px; margin-bottom: 2px;" data-qnumber="1" href="#soal1" class="btn btn-lg btn-outline green bQuestionNumber qAnswer1" data-answered="false">1</a>
+        <a style="width:50px; margin-bottom: 2px;" data-qnumber="2" href="#soal2" class="btn btn-lg btn-outline green bQuestionNumber qAnswer2" data-answered="false">2</a>
+        <a style="width:50px; margin-bottom: 2px;" data-qnumber="3" href="#soal3" class="btn btn-lg btn-outline green bQuestionNumber qAnswer3" data-answered="false">3</a>
+        <a style="width:50px; margin-bottom: 2px;" data-qnumber="4" href="#soal4" class="btn btn-lg btn-outline green bQuestionNumber qAnswer4" data-answered="false">4</a>
+        <a style="width:50px; margin-bottom: 2px;" data-qnumber="5" href="#soal5" class="btn btn-lg btn-outline green bQuestionNumber qAnswer5" data-answered="false">5</a>
+       -->
+        <a style="width:50px; margin: 2px;" href="#soal1" class="btn btn-primary">1</a>
+        <a style="width:50px; margin: 2px;" href="#soal2" class="btn btn-primary">2</a>
+        <a style="width:50px; margin: 2px;" href="#soal3" class="btn btn-primary">3</a>
+        <a style="width:50px; margin: 2px;" href="#soal4" class="btn btn-primary">4</a>
+        <a style="width:50px; margin: 2px;" href="#soal5" class="btn btn-primary">5</a>
+      
+      </section>
+    </nav>
+  </div>
+
+  <section class="border"> 
+    <div class="rotate">
+      <button class="btn btn-primary toggle-button">Selesai</button>
+    </div> 
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12 p-3">
+          <div class="header float-left">
+            <img src="assets/image/logo_asesme2.png" />
+          </div>
+          <div class="waktu">
+            <button class="btn btn-light border"><span style="font-size: 12px; color: red ">SISA WAKTU: 04:55:12</span></button>
+          </div>
+        </div>
+ 
+      </div>
+
+    </div>
+  </section>
+
+  <section class="my-3">
+    <div class="container">
+      <div class="row border p-2">
+        <div class="col-md-12">
+
+          <div class="p-2">
+            <span class="caption-subject font-dark bold uppercase">AMP - Asesme Money Profile</span>
+            <span class="caption-helper">Trial Test</span>
+          </div>
+          <hr class="my4"/>
+          <div class="card" style="width: auto; "
+          *ngFor="let soal of soals; let i = index">
+            <div class="card-body my-2">
+              <h6 class="card-title" routerLink="../detail-loker">{{i+1}}. {{soal.soal}} </h6>        
+              <!-- <p class="card-text">Senior Front End Web Developer We are looking for an experienced and talented developer to join our team to work on our new webbased products. The developer will work in a SCRUM team to design, develop, test and deploy web applications on the cloud or on-premise environments.</p> -->
+            </div>
+            <ul class="list-group list-group-flush " *ngFor="let jwb of soal.Jawaban">
+              <li class="list-group-item">{{jwb.JId}}. {{jwb.JKata}}</li>
+            </ul>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="row my-3">
+        <div class="col-md-12 text-center">
+          <h6 class="mb-3">Power By: </h6>
+          <img src="assets/image/logo_asesme2.png">
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <div class="container py-5">
+  <form [formGroup]="rForm">
+    <div class="row">
+      <div class="col-md-5">
+        <div class="form-group">
+          <label for="">Title</label>
+          <input type="text" formControlName="title" class="form-control">          
+        </div>
+      </div>
+      <div class="col-md-5">
+        <div class="form-group">
+          <label for="">Body</label>          
+          <input type="text" formControlName="body" class="form-control">
+        </div>
+      </div>
+      <div class="col-md-2">
+        <div class="form-group">
+          <label>.</label>
+          <button class="btn btn-primary btn-md btn-block" (click)="savePost(rForm.value)"> Simpan </button>
+        </div>
+      </div>         
+    </div>
+  </form>
+</div> -->

@@ -1,0 +1,87 @@
+<div class="container">
+    <div class="row pt-5 mb-5 ">
+      <div class="col-md-3 mb-2">
+          <div class="card border" style="width: auto;">
+            <div class="row p-3">
+              <div class="col-md-12 text-center">
+                <div *ngIf="!detailCustumer.profile_picture==''; else imgKosong">
+                  <img  class="class-img" src={{detailCustumer.profile_picture}} alt="Card image cap">
+                </div>
+                <ng-template #imgKosong>
+                  <img class="class-img" src="assets/image/dede.jpg" alt="Card image cap">
+                </ng-template>
+                <p class="mt-2"><ngb-progressbar *ngIf="hasil.type==1" type="info" [value]="progressStatus" [striped]="true">{{progressStatus}} %</ngb-progressbar></p>
+                
+              </div>
+            </div>  
+            <div class="card-body">
+              <input type="file" hidden="hidden" #fileInput (change)="onFileSelected($event)">
+              <button type="button" class="btn btn-primary btn-block" (click)="fileInput.click()">Upload Foto</button>              
+              <!-- <button type="button" (click)="onUpload()">Upload Foto</button> -->
+              <p class="card-text mt-3 text-center">Photo Minimal 180 x 180px</p>
+            </div>
+            
+          </div>
+      </div>
+  
+      <div class="col-md-9 ">
+        <div class="row my-2 " style="height: auto;">
+          <div class="col-md-12">
+            <nav aria-label="breadcrumb">
+              <ol class="breadcrumb" style="background-color:transparent">
+                <li class="breadcrumb-item"><a routerLink="../me/dashboard">Home</a></li>
+                <li class="breadcrumb-item"><a >Update Profile</a></li>
+              </ol>
+            </nav>
+            
+          </div>  
+        </div>
+
+        <div class="row my-2 py-3 mb-5 border" style="background-color: white">
+          <div class="col-md-12">
+            <ul class="nav nav-tabs">
+              <li class="nav-item">
+                <a class="nav-link active" data-toggle="tab" href="#dataDiri">Data Pribadi</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" data-toggle="tab" href="#kemampuan">Kemampuan Anda</a>
+              </li>
+                <li class="nav-item">
+              <a class="nav-link" data-toggle="tab" href="#pengalaman">Pengalaman Kerja</a>
+                </li>
+              <li class="nav-item">
+                <a class="nav-link" data-toggle="tab" href="#pendidikan">Pendidikan</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" data-toggle="tab" href="#bahasa">Bahasa</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" data-toggle="tab" href="#sertifikat">Sertifikat</a>
+              </li>
+            </ul>
+                <!-- Tab panes -->
+            <div class="tab-content">
+              <div id="dataDiri" class="container tab-pane active"><br>
+                <app-tab-data-diri></app-tab-data-diri>
+              </div>
+              <div id="kemampuan" class="container tab-pane fade"><br>
+                <app-tab-kemampuan></app-tab-kemampuan>
+              </div>
+              <div id="pengalaman" class="container tab-pane fade"><br>
+                <app-tab-pengalaman></app-tab-pengalaman>
+              </div>
+              <div id="pendidikan" class="container tab-pane fade"><br>
+                <app-tab-pendidikan></app-tab-pendidikan>
+              </div>
+              <div id="bahasa" class="container tab-pane fade"><br>
+                <app-tab-bahasa></app-tab-bahasa>
+              </div>
+              <div id="sertifikat" class="container tab-pane fade"><br>
+                <app-tab-sertifikat></app-tab-sertifikat>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>

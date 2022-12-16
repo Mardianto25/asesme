@@ -1,0 +1,19 @@
+export interface AlatTes {
+    name:string,
+    descriptions:string,
+    price:number
+    status:string,
+    created_at:Date,
+    deleted_at:Date,
+    updated_at:Date,
+    created_by:string,
+    updated_by:string,
+    deleted_by:string,
+    package_id:string,
+    for_corporate:string,
+    pictures:string,
+    package_slug:string,
+    url:string,
+    short_descriptions:string,
+    status_purchased:string
+}

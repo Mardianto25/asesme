@@ -1,0 +1,72 @@
+[
+    {
+        "id":1,
+        "soal":"Siapa Penemu Lampu ??",
+        "Jawaban": [
+            {
+                "JId":"A",
+                "JKata":"Tukang Lampu"
+            },
+            {
+                "JId":"B",
+                "JKata":"Tukang Urut"
+            },
+            {
+                "JId":"C",
+                "JKata":"Tukang Dagang"
+            },
+            {
+                "JId":"D",
+                "JKata":"Tukang Tidur"
+            }
+        ],
+        "JawabanBenar":"A"
+    },
+    {
+        "id":2,
+        "soal":"Siapa Penemu Nyeri Cangkeng ??",
+        "Jawaban": [
+            {
+                "JId":"A",
+                "JKata":"Tukang Lampu"
+            },
+            {
+                "JId":"B",
+                "JKata":"Tukang Urut"
+            },
+            {
+                "JId":"C",
+                "JKata":"Tukang Dagang"
+            },
+            {
+                "JId":"D",
+                "JKata":"Tukang Tidur"
+            }
+        ],
+        "JawabanBenar":"B"
+    },
+    {
+        "id":3,
+        "soal":"Siapa Penemu Malaikat Tak Bersayap ??",
+        "Jawaban": [
+            {
+                "JId":"A",
+                "JKata":"Tukang Lampu"
+            },
+            {
+                "JId":"B",
+                "JKata":"Tukang Urut"
+            },
+            {
+                "JId":"C",
+                "JKata":"Tukang Dagang"
+            },
+            {
+                "JId":"D",
+                "JKata":"Tukang Tidur"
+            }
+        ],
+        "JawabanBenar":"D"
+    }
+
+]

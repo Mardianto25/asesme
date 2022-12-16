@@ -1,0 +1,123 @@
+<!-- <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container">
+    <a class="navbar-brand " href="#">Asesme</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <div class="mr-auto ">
+        
+      </div>
+
+      <ul class="navbar-nav my-2 my-lg-0">
+        <li class="nav-item">
+          <a class="nav-link" routerLink="./dashboard">Dashboard </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="./loker">Loker</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="./meme">Meme</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Login
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" (click)="pesanUrl()" style="cursor: pointer;">Pesan</a>
+            <a class="dropdown-item" (click)="Url()" style="cursor: pointer;">Update Profile</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" (click)="_login.logoutUser()" style="cursor: pointer;">Keluar </a>
+          </div>
+        </li>
+      </ul>
+
+    </div>  
+  </div>
+</nav> -->
+<!-- <div class="body">
+  <router-outlet></router-outlet>    
+</div>
+
+<div class="container">
+  <div class="row pt-3">
+    <div class="col-md-3">
+      <h3 style="color: #3A95EF">Asesme</h3>
+
+      <p class="mt-5" style="color: #3A95EF">
+          Syarat & Ketentuan
+      </p>
+      <p style="color: #3A95EF">Kebijakan Privasi</p>
+    </div>
+    <div class="col-md-4">
+      <h4 style="color: #FF7900; font-weight: bold"> Kontak Kami</h4>
+      <p class="mt-5">Ruko Food Arcade CG 3-5 GWalk, Citraland, Surabaya
+          Hand Phone: 0878.5327.5086</p>
+    </div>
+    <div class="col-md-5">
+      <h4 style="color: #FF7900; font-weight: bold"> Tentang Asesme</h4>
+      <p class="mt-5">
+          Kami merupakan platform media asesmen dan pembelajaran terdepan yang menjadi sahabat Anda untuk mengoptimalkan pengenalan diri, sehingga dapat memaksimalkan potensi setiap pribadi. Secara profesional, kami menciptakan produk berkualitas (world class quality), menyenangkan, inovatif, fleksibel, dan akurat.
+      </p>
+
+      <ul class="ul">
+        <li class="mr-2"><a href="#"><i class="fa fa-facebook"></i></a></li>
+        <li class="mr-2"><a href="#"><i class="fa fa-linkedin"></i></a></li>
+        <li class="mr-2"><a href="#"><i class="fa fa-twitter"></i></a></li>          
+      </ul>
+    </div>  
+  </div>
+</div>
+<div class="footer">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <p>Made by asesme</p>
+      </div>
+    </div>
+  </div>
+</div> -->
+
+
+<section *ngIf="slideFree; else Loading">
+  <div class="container">
+    <p class="pt-3 px-2"><strong> Promo <span style="color: #FF7900">5 Alat Tes Gratis</span></strong></p>
+    <div class="row">
+      <div class="col-md-6 my-3" *ngFor="let sld of slideFree">
+        <div class="card border mx-2" style="width: auto; border-radius: 20px; border:none !important">
+          <div class="p-5 mx-auto bg text-center" >
+              <img src="{{sld.pictures}}" style="width: 150px; height: 150px" class="mx-auto" />  
+              <p style="color: white">{{sld.name}}</p> 
+              <!-- <p class="text-gray" innerHtml="{{sld.descriptions | slice:0:100}}"></p> -->
+              <button class="btn btn-primary1 px-5" routerLink="../alat-tes-detail/{{sld.package_id}}" data-toggle="modal" data-target="#exampleModalLong" > Lihat Detail ...</button>      
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="pb-5" *ngIf="slideBuy; else Loading">
+  <div class="container">
+    <p class="pt-3 px-2"><strong> Alat Tes <span style="color: #FF7900">Rekomendasi</span></strong></p>
+    <div class="row">
+      <div class="col-md-6 my-2" *ngFor="let sld of slideBuy">
+        <div class="card border mx-2" style="width: auto; border-radius: 20px">
+          <div class="p-5 mx-auto bg-buy text-center" >
+              <img src="{{sld.pictures}}" style="width: 150px; height: 150px" class="mx-auto" />  
+              <p style="color: black">{{sld.name}}</p> 
+              <!-- <p class="text-gray" innerHtml="{{sld.descriptions | slice:0:100}}"></p> -->
+              <button class="btn btn-primary1 px-5" routerLink="../alat-tes-detail/{{sld.package_id}}" data-toggle="modal" data-target="#exampleModalLong" > Lihat Detail ...</button>      
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<ng-template #Loading>
+  <h3>Loading ...</h3>
+</ng-template>
+
+

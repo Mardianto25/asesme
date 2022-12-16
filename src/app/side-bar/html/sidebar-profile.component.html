@@ -1,0 +1,43 @@
+<div class="container">
+    <div class="row pt-5 pb-5">
+      <div class="col-md-3 mb-2">
+
+        <div class="card border" style="width: auto;">
+          <div class="row m-4">
+            <div class="col-md-12 text-center">
+              <div *ngIf="custumerDetail.profile_picture!=''; else imgKosong">
+                <img  class="class-img" src={{custumerDetail.profile_picture}} alt="Card image cap">
+              </div>
+              <ng-template #imgKosong>
+                <img class="class-img" src="assets/image/dede.jpg" alt="Card image cap">
+              </ng-template>
+            </div>
+          </div>
+          <div class="card-body">
+            <h5 class="card-title text-center">{{custumerDetail.first_name}}</h5>
+          </div>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item"><i class="fa fa-envelope"></i> {{custumerDetail.email}}</li>
+            <li class="list-group-item"><i class="fa fa-user"> {{custumerDetail.gender}}</i></li>
+            <li class="list-group-item"><i class="fa fa-location-arrow"></i> Location</li>
+            <li class="list-group-item"><button class="btn btn-primary btn-block" routerLink="../update-profile">Perbarui Profile</button></li>
+          </ul>
+          <div class="card-body">
+            <p><strong>Kelengkapan Data 20%</strong> </p>
+            <div class="progress mb-3">
+              <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100" style="width: 25%"></div>
+            </div>
+            <p class="text-left">Gunakan fitur "Lamar" lowongan kerja dengan lengkapi data min. 70%</p>
+            <button class="btn btn-light btn-block border-button" routerLink="./chat"> Pesan </button>
+            <button class="btn btn-light btn-block border-button" routerLink="./loker-pilihan"> Lowongan Kerja Pilihan </button>
+            <button class="btn btn-danger btn-block" (click)="_login.logoutUser()">  Keluar </button>            
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-9">
+        <router-outlet></router-outlet>
+      </div>
+      
+    </div>
+  </div>

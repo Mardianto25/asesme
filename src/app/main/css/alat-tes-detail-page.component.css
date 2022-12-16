@@ -1,0 +1,38 @@
+.bg-container {
+    background: url('../../../assets/image/banner_detail_alat.png');
+    min-height: 325px;
+}
+
+.kenali-pola {
+    color: #ffffff;
+    font-weight: 500;
+    text-align: center;
+    font-size: 32px;
+    padding: 100px 0;
+    width: 70%;
+    margin: 0 auto;
+    line-height: 50px;
+}
+
+.detail-p {
+    line-height: 2;
+    font-size: 20px
+}
+
+.img{
+    width: 30%;
+}
+.img-card {
+    width: 100%;
+}
+.responsive {
+    max-width: 100%;
+    height: auto;
+}
+
+@media (max-width: 767px) {
+    .img-card{
+        width: 50%;
+        margin-left: 70px
+    }
+}

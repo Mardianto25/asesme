@@ -1,0 +1,182 @@
+
+  <h3 class="px-2 mt-3">Data Akun Anda</h3>
+  <hr class="my-4" />
+  <form class="px-2" [formGroup]="FormAkun">
+    <div class="row mt-5">
+      <div class="col-md-6">
+        <div class="form-group">
+          <label for="Username">Username</label>
+          <input type="text" class="form-control" formControlName="username" id="Username" placeholder="Username">
+        </div>  
+      </div>
+      <div class="col-md-6">
+        <div class="form-group">
+          <label for="Email">Email</label>
+          <input type="email" class="form-control" formControlName="email" id="Email" placeholder="Email">
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-4">
+        <div class="form-group">
+          <label for="Password"> Password Lama</label>
+          <input type="password" class="form-control" formControlName="old_password" id="Password" placeholder="Password Lama">
+        </div>  
+      </div>
+      <div class="col-md-4">
+        <div class="form-group">
+          <label for="Password">Password</label>
+          <input type="password" class="form-control" formControlName="password" id="Password" placeholder="Password">
+        </div>  
+      </div>
+      <div class="col-md-4">
+        <div class="form-group">
+          <label for="KonfirmasiPassword">Konfirmasi Password</label>
+          <input type="password" class="form-control" formControlName="konfirmasi_password" id="KonfirmasiPassword" placeholder="Konfirmasi Password">
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <div style="margin-top: 20px" *ngIf="!errorValidasi; else errorValidasiMessage">
+          <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            <strong>Password not valid</strong>
+            <button type="button" class="close" data-dismiss="alert" (click)="handleError()" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+        </div>
+        <ng-template #errorValidasiMessage>
+            <div data-dismiss="modal"></div>                                
+        </ng-template>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <button id="updateDataAkun" class="btn btn-primary modalAkun" (click)="update(FormAkun.value)" > Update </button>
+      </div>
+    </div>
+
+  </form>
+
+  <h3 class="mt-4 px-2 mb-3">Data Diri Anda</h3>
+  <hr class="my-4"/>
+  <form class="px-2" [formGroup]="FormDataDiri">
+    <div class="row mt-5">
+      <div class="col-md-6">
+        <div class="form-group">
+          <label for="NamaDepan">Nama Depan</label>
+          <input type="text" class="form-control" formControlName="first_name" id="NamaDepan" placeholder="Nama Depan">
+        </div>  
+      </div>
+      <div class="col-md-6">
+        <div class="form-group">
+          <label for="NamaBelakang">Nama Belakang</label>
+          <input type="text" class="form-control" formControlName="last_name" id="NamaBelakang" placeholder="Email">
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+        <div class="form-group">
+            <label>Tanggal Lahir :</label>
+            <!-- <input class="form-control" placeholder="yyyy-mm-dd"
+            name="dp" formControlName="born_date" ngbDatepicker #d="ngbDatepicker" (click)="d.toggle()"> -->
+          <input type="date" class="form-control" id="TanggalLahir" formControlName="birth_date" placeholder="Tanggal Lahir">
+        </div>  
+      </div>
+      <div class="col-md-6">
+        <div class="form-group">
+          <label for="TempatLahir">Tempat Lahir</label>
+          <input type="text" class="form-control" id="TempatLahir" formControlName="born_at" placeholder="Tempat Lahir">
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-4">
+        <div class="form-group">
+          <label for="JenisKelamin">Jenis Kelamin</label>
+          <select class="form-control" formControlName="gender" id="JenisKelamin">
+            <option selected>Jenis Kelamin </option> 
+            <option *ngFor="let gender of genders">{{gender}} </option>                        
+          </select>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="form-group">
+          <label for="Agama">Agama</label>
+            <select class="form-control" formControlName="religion" id="Agama">
+              <option value="" selected>Agama</option>
+              <option *ngFor="let ag of agama">{{ag}}</option>                       
+            </select> 
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="form-group">
+          <label for="NoHandPhone">No HandPhone</label>
+          <input type="number" class="form-control" id="NoHandPhone" formControlName="phone_number" placeholder="No HandPhone">
+        </div>  
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-6">
+        <div class="form-group">
+            <label for="provinsi">Provinsi</label>
+            <angular2-multiselect 
+                [data]="dataProvinsi" 
+                [settings]="settings" 
+                (onSelect)="onChange($event)" 
+                formControlName="provinsi">
+            </angular2-multiselect>       
+        </div>  
+      </div>
+      <div class="col-md-6">
+        <div class="form-group">
+          <label for="kota">Kota / Kabupaten</label>
+            <angular2-multiselect 
+                [data]="dataKota" 
+                [settings]="settingsKota" 
+                formControlName="regency_id">
+            </angular2-multiselect> 
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="form-group">
+          <label for="NoHandPhone">Alamat</label>
+          <input type="text" class="form-control" formControlName="address" id="Alamat" placeholder="Alamat">
+        </div>  
+      </div>
+      
+    </div>
+    <div class="row mb-2">
+      <div class="col-md-12">
+        <button id="updateDataDiri" class="btn btn-primary modalDiri" (click)="updateDataDiri(FormDataDiri.value)" > Update </button>
+      </div>
+    </div>
+
+    <!-- {{FormDataDiri.value | json}} -->
+  </form>
+
+  <div class="modal fade" id="alert" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <h6>Pemberitahuan</h6>
+        </div>
+        <div class="modal-body">
+          <p>Update Success </p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">OK</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>

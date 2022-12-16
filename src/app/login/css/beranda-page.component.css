@@ -1,0 +1,126 @@
+.banner {
+    max-width: 100%;
+    min-height: 700px;
+    background-image: url('../../../assets/image/bg_banner_home.png');
+    background-color: #ff7900;
+    background-position: 0 bottom;
+    -o-background-position: 0 bottom;
+    -moz-background-position: 0 bottom;
+    -webkit-background-position: 0 bottom;
+    background-repeat: repeat no-repeat;
+    -o-background-repeat: repeat no-repeat;
+    -moz-background-repeat: repeat no-repeat;
+    -webkit-background-repeat: repeat no-repeat;
+    
+}
+.bg {
+    background: #2d82ef;
+    background: linear-gradient(53deg,rgba(45,130,239,1) 11%,rgba(85,0,182,1) 100%);
+    width: 100%; 
+    height: auto;
+    border-radius: 1%
+}
+
+
+.bg-buy{
+    background: transparent;
+    /* background: linear-gradient(53deg,rgba(45,130,239,1) 11%,rgba(85,0,182,1) 100%); */
+    width: 100%; 
+    height: auto;
+    border-radius: 3% 3% 3% 3%
+
+}
+.btn-detail {
+    box-shadow: 0 !important;
+    background: #2d82ef;
+    border-radius: 30px;
+    font-weight: 500;
+    
+}
+
+.btn-primary1 {
+    border-radius: 30px !important;
+    box-shadow: 0px !important;
+    background: #2d82ef !important;
+    border:none !important;
+    color: white;
+}
+
+.btn-primary1:hover {
+
+    background: #2BBBAD !important;
+  
+}
+
+.section{
+    padding:  0px 0px 50px !important;
+}
+
+
+/* .asesme-orange{
+    background: #ff7900;
+    background-color: rgb(255, 121, 0);
+    background-position-x: 0%;
+    background-position-y: 0%;
+    background-repeat: repeat;
+    background-image: none;
+    padding-bottom: 85px;
+} */
+
+.img{
+    width: 380px;
+    height: 260px;
+}
+
+.margin {
+    margin-top: -220px !important;
+    /* padding: 30px; */
+    padding: none !important;
+}
+
+.card-custom{
+    background-color: #FF7900; 
+    width: 80%
+}
+.float-right{
+    margin-top: 10px !important
+}
+
+.card {
+    border:none !important;
+}
+
+@media (max-width:767px) {
+    .margin {
+        margin-top: 0px !important;
+    }
+    .card-custom{
+        width: 100%;
+    }
+    .banner {
+        padding-bottom: 180px
+    }
+    .float-right{
+        margin-top: -55px !important
+    }
+
+
+}
+
+@media  (min-width : 767px) and (max-width : 1024px) {
+    .margin {
+        margin-top: -80px !important;
+    }
+    .card-custom{
+        width: 100%;
+    }
+    .banner {
+        padding-bottom: 10px
+    }
+    
+    .btn{
+        font-size: 13px !important
+    }
+}
+
+

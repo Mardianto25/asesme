@@ -1,0 +1,60 @@
+<!-- <div class="container">
+  <div class="row pt-5 pb-5">
+    <div class="col-md-3 mb-2">
+        <app-sidebar-profile></app-sidebar-profile>
+    </div>
+
+    <div class="col-md-9 "> -->
+      <div class="row mb-3" style="height: auto;">
+        <div class="col-md-12">
+          <nav aria-label="breadcrumb">
+            <ol class="breadcrumb" style="background-color:transparent">
+              <li class="breadcrumb-item"><a routerLink="../../dashboard">Home</a></li>
+              <li class="breadcrumb-item"><a>Detail Lowongan Pekerjaan</a></li>
+            </ol>
+          </nav>
+        </div>
+      </div>
+     
+      <div class="row mt-3">
+        <div class="col-md-12">
+          <div class="card" style="width: auto; background-color: #E9ECEF !important; border:none">
+            <div class="card-body">
+              <h5 class="card-title">{{detailLoker.title}} </h5>
+              <hr class="my-4">                
+              <p class="card-text" innerHtml={{detailLoker.description}}></p>
+              <p class="card-text" innerHtml={{detailLoker.education}}></p>     
+              <p class="card-text" innerHtml={{detailLoker.experience}}></p>
+              <p ><strong>Penempatan : </strong>  </p>              
+              <p class="card-text" innerHtml={{detailLoker.location}}></p>                                     
+            </div>
+            <div class="card-body">
+              <div class="lead float-right">
+                <a *ngIf="detailLoker.apply.status==1; else show" hidden="hidden" class="btn btn-primary btn-md mr-4 text-white" (click)="applyJob(detailLoker)">Lamar Pekerjaan</a>
+                <ng-template #show>
+                  <a class="btn btn-primary btn-md mr-4 text-white" (click)="applyJob(detailLoker)">Lamar Pekerjaan</a>                  
+                </ng-template>
+                <a class="btn btn-light text-dark" [ngbPopover]="popContent" container="body">Bagikan</a>
+                <ng-template #popContent>
+                  <share-buttons 
+                    theme="modern-dark"
+                    [exclude]="['reddit','tumblr','mix','vk','telegram','messenger','whatsapp','xing','line','sms','email','print','copy']" 
+                    [show]="4"
+                    [size]="-4" 
+                    [showText]="true" 
+                    [showCount]="true"
+                    [size]="-4"
+                    [autoSetMeta]="false"
+                    
+                    >
+                  </share-buttons>
+                </ng-template>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    <!-- </div>
+  </div>
+</div> -->

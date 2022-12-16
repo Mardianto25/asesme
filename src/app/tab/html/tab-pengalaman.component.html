@@ -1,0 +1,190 @@
+<form  class="px-2 mt-2" [formGroup]="FormPengalaman">
+  <h3>Pengalaman Kerja / Organisasi</h3>
+  <hr class="my-4" />
+  <div id="formUpdate" class="row mt-5">
+    <div class="col-md-6">
+      <div class="form-group">
+        <label for="NamaPerusahaan">Nama Perusahaan / Organisasi</label>
+        <input type="text" class="form-control" id="NamaPerusahaan" formControlName="name" placeholder="Nama Perusahaan">
+        
+        <!-- <span>isi nama perusahaan anda / organisasi anda</span> -->
+      </div>  
+    </div>
+    <div class="col-md-6">
+      <div class="form-group">
+        <label for="Jabatan">Jabatan</label>
+        <input type="text" class="form-control" id="Jabatan" formControlName="role" placeholder="Jabatan">
+        <!-- <span>isi nama perusahaan anda / organisasi anda</span>                       -->
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <div class="form-group">
+        <label for="Sejak">Sejak</label>
+        <input type="date" class="form-control"  id="Sejak" formControlName="since" placeholder="Tahun Masuk">
+        <!-- <span>isi nama perusahaan anda / organisasi anda</span>                         -->
+      </div>  
+    </div>
+    <div class="col-md-6">
+      <div class="form-group">
+        <label for="Sampai">Sampai</label>
+        <input type="date" class="form-control" id="Sampai" formControlName="to" placeholder="Tahun Keluar">
+        <!-- <span>isi nama perusahaan anda / organisasi anda</span>                         -->
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+        <button class="btn btn-primary" (click)="simpan(FormPengalaman.value)" [disabled]="!FormPengalaman.valid"> Simpan </button>
+      <!-- <ng-template #update> 
+        <button class="btn btn-primary" (click)="simpanUpdate(FormPengalaman.value)"> Update </button>    
+      </ng-template> -->
+    </div>
+    
+  </div>
+  <div class="row mt-3">
+    <div class="col-md-12">
+      <div class="table-responsive-md">
+        <table class="table">
+          <!-- <caption>List </caption> -->
+          <thead>
+            <tr>
+              <th scope="col">Nama Perusahaan</th>
+              <th scope="col">Jabatan</th>
+              <th scope="col">Sejak</th>
+              <th scope="col">Sampai</th>
+              <th scope="col" class="text-center">Action</th>
+            </tr>
+          </thead>
+          <tbody *ngFor="let exc of detailExperience ">
+            <tr>
+              <th scope="row">{{exc.name}}</th>
+              <td>{{exc.role}}</td>
+              <td>{{exc.since}}</td>
+              <td>{{exc.to}}</td>
+              <td class="text-center">                 
+                <!--  -->
+                <div class="btn-group" role="group" aria-label="Basic example">
+                  <button class="btn btn-success float-right" id={{exc.id}} data-toggle="modal" data-target="#myModal"   (click)="openClick(exc)"><i class="fa fa-pencil"></i></button>                  
+                  <button class="btn btn-danger float-left" (click)="delete(exc)"><i class="fa fa-trash"></i></button>                
+                </div>
+              </td>
+            </tr>
+            
+          </tbody>                          
+        </table>
+      </div>
+    </div>
+  </div>
+</form>
+
+<!-- - <div class="modal-options" data-izimodal-title="FORM UBAH DATA">
+    <div class="p-3">  
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="NamaPerusahaan">Nama Perusahaan {{tes}} </label>
+            <input type="text" class="form-control"  id="idModal" formControlName="id" placeholder="Nama Perusahaan">
+            
+            <input type="text" class="form-control" id="nameModal" formControlName="nameModal" placeholder="Nama Perusahaan">
+          </div>  
+        </div>
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="Jabatan">Jabatan</label>
+            <input type="text" class="form-control" id="roleModal" formControlName="roleModal" placeholder="Jabatan">
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="Sejak">Sejak</label>
+            <input type="tel" class="form-control" maxlength="4" id="sinceModal" formControlName="sinceModal" placeholder="Tahun Masuk">
+          </div>  
+        </div>
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="Sampai">Sampai</label>
+            <input type="text" maxlength="4" class="form-control" id="toModal" formControlName="toModal" placeholder="Tahun Keluar">
+          </div>
+        </div>
+      </div>
+      <div class="row mt-3">
+        
+        <div class="col-md-6">
+          <div class="form-group">
+            <button class="btn btn-light float-right form-control my-2"  data-izimodal-close="" data-izimodal-transitionout="bounceOutDown"> Cancel </button>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group">
+            <button class="btn btn-primary float-right form-control submit my-2" style="background-color: #FF7900 !important; border:none" (click)="update(FormPengalaman.value)" > Update </button>
+          </div>
+        </div>
+      </div>
+    </div>
+</div> -->
+<form [formGroup]="FormModal"> 
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Form Data Pengalaman</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="NamaPerusahaan">Nama Perusahaan </label>
+                <input type="text" class="form-control" hidden="hidden" id="idModal" formControlName="id" placeholder="Nama Perusahaan">
+                
+                <input type="text" class="form-control" id="nameModal" formControlName="name" placeholder="Nama Perusahaan">
+              </div>  
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="Jabatan">Jabatan</label>
+                <input type="text" class="form-control" id="roleModal" formControlName="role" placeholder="Jabatan">
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="Sejak">Sejak</label>
+                <input type="date" class="form-control"  id="sinceModal" formControlName="since" placeholder="Tahun Masuk">
+              </div>  
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="Sampai">Sampai</label>
+                <input type="date"  class="form-control" id="toModal" formControlName="to" placeholder="Tahun Keluar">
+              </div>
+            </div>
+          </div>
+          <div class="row mt-3">
+            
+            <div class="col-md-6">
+              <div class="form-group">
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-secondary form-control"  data-dismiss="modal"> Cancel </button>          
+          <button class="btn btn-primary update  form-control" (click)="update(FormModal.value)" data-dismiss="modal"> Update </button>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+</form>

@@ -1,0 +1,218 @@
+<!-- <div class="container">
+  <div class="row pt-5 pb-5">
+    <div class="col-md-3 mb-2">
+       <app-sidebar-profile></app-sidebar-profile>
+    </div>
+
+    <div class="col-md-9 "> -->
+      <div class="row mb-5" style="height: auto;">
+        <div class="col-md-12">
+          <h4>Kenali Diri Anda</h4>
+          <hr />
+          <h5><strong> Coba <span style="color: #FF7900">5 Alat Tes Gratis</span></strong></h5>
+          <!-- Flickity HTML init -->
+          <!-- <input type="text"  [(ngModel)]="price" hidden="hidden"> -->
+          <ngx-slick-carousel class="carousel" 
+                #slickModal="slick-carousel" 
+                [config]="master.slideDashboard">
+              <div ngxSlickItem *ngFor="let sld of slideFree " class="slide">
+                  <div class="card mx-2 " style="width: auto; border: none;">
+                    <div class="row">
+                      <div class="col-md-12">
+                        <div class="p-5 mx-auto text-center" style="width: auto; height: auto; background-color: blue; border-radius: 3% 3% 3% 3%">
+                            <img src="{{sld.pictures}}" style="width: 150px; height: 150p" class="mx-auto" />  
+                            <p style="color: white">{{sld.name}}</p> 
+                        </div>
+                        <div class="card-img mt-3">
+                          <button class="btn btn-primary btn-block " (click)="getCekOrTest(sld.package_id, content)" data-toggle="modal" data-target="#exampleModalLong" > Mulai Tes</button>
+                          <button class="btn btn-light btn-block border mt-2 mb-2" routerLink="../alat-tes-detail/{{sld.package_id}}"> Lihat Detail </button>                    
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+              </div>
+          </ngx-slick-carousel>
+        </div>  
+      </div>
+
+      <div class="row mt-4 mb-5" style="height: auto;">
+        <div class="col-md-12">
+          <h5><strong> Coba Alat Tes<span style="color: #FF7900"> Rekomendasi</span></strong></h5>
+          <input type="text"  [(ngModel)]="priceBuy" hidden="hidden">
+          
+          <!-- Flickity HTML init -->
+          <ngx-slick-carousel class="carousel" 
+                #slickModal="slick-carousel" 
+                [config]="master.slideDashboard">      
+              <div ngxSlickItem *ngFor="let slb of slideBuy" class="slide">
+                <div class="card mx-2" style="border:none">
+                  <div class="row">
+                    <div class="col-md-12">
+                      <div class="p-5 mx-auto text-center border" style="width: auto; height: auto; background-color:transparent; border-radius: 3% 3% 3% 3%">
+                        <img src="{{slb.pictures}}" style="width: 150px; height: 150px;" class="mx-auto" />  
+                        <p style="color:#ff7900">{{slb.name}}</p>  
+                      </div>
+                      <div class="card-img mt-3">
+                        <button class="btn btn-primary btn-block" routerLink="../tes"> Mulai Tes</button>
+                        <button class="btn btn-light btn-block border mt-2 mb-2" routerLink="../alat-tes-detail/{{slb.package_slug}}"> Lihat Detail </button>                    
+                      </div>
+                    </div>
+
+                    </div>
+                  </div>
+              </div>
+          </ngx-slick-carousel>
+        </div>  
+      </div>
+
+
+      <div class="row mt-4 mb-5" style="height: auto;">
+        <div class="col-md-12">
+          <h5><strong> Unduh <span style="color: #FF7900"> Hiburan</span></strong></h5>
+          <ngx-slick-carousel class="carousel" 
+                #slickModal="slick-carousel" 
+                [config]="master.slideMeme" >
+              <div ngxSlickItem *ngFor="let mm of memeDetail" class="slide">
+                <div class="card mx-2" style="width: auto; border: none">
+                  <img class="card-img-top"  src="{{mm.images}}" width="auto" height="auto" alt="Card image cap">
+                  <div class="card-img mt-3">
+                    <div class="row">
+                      <div class="col-md-6">
+                          <a href={{mm.images}} target="_blank"><button class="btn btn-primary btn-block mb-2"> Simpan <i class="fa fa-download"></i></button></a>                                                                       
+                      </div>
+                      <div class="col-md-6">
+                        <button class="btn btn-light btn-block border mb-2 " [popover]="myMeme"> Bagikan <i class="fa fa-share-alt"></i></button> 
+                        <popover-content #myMeme  
+                        placement="top"
+                        [animation]="true"
+                        [closeOnClickOutside]="true" >
+                        <div class="card" style="z-index: 10000 !important;">
+                          <share-buttons 
+                          theme="modern-dark"
+                          [exclude]="['reddit','tumblr','mix','vk','telegram','messenger','whatsapp','xing','line','sms','email','print','copy']" 
+                          [show]="4"
+                          [size]="-4" 
+                          [showText]="true" 
+                          [url]="mm.images"></share-buttons>
+                        </div>  
+                        </popover-content>
+                          
+                      </div>
+                    </div>                 
+                  </div>
+                </div>
+              </div>
+          </ngx-slick-carousel>
+         
+        </div>
+      </div>
+      <hr />
+      <div class="row mt-4 mb-5" style="height: auto;">
+        <div class="col-md-12">
+          <h5><strong> Lowongan <span style="color: #FF7900"> Terbaru </span></strong></h5>
+          <h6 class="text-right" style="color: #93EDF6"><a routerLink="../loker">Lihat Semua</a></h6>
+          <ngx-slick-carousel class="carousel" 
+                #slickModal="slick-carousel" 
+                [config]="master.slideMeme" >
+              <div ngxSlickItem *ngFor="let jb of jobDetail" class="slide">
+                  <div class="card text-center">
+                    <div class="card-header">
+                      {{jb.title}}
+                    </div>
+                    <div class="card-body">
+                      <h5 class="card-title" innerHtml="{{jb.description}}"></h5>
+                      <p class="card-text" innerHtml="{{jb.location}}"></p>
+                    </div>
+                    <div class="card-footer text-muted">
+                        <div class="row">
+                          <div class="col-md-6">
+                            <button class="btn btn-primary btn-block mb-2" routerLink="../detail-loker/{{jb.id}}"> Detail <i class="fa fa-eye"></i></button>                               
+                          </div>
+                          <div class="col-md-6">
+                              <button class="btn btn-light btn-block border mb-2 " [popover]="myLoker"> Bagikan <i class="fa fa-share-alt"></i></button>                                                                                                    
+                              <popover-content #myLoker  
+                                placement="top"
+                                [animation]="true"
+                                [closeOnClickOutside]="true" >
+                                <div class="card" style="z-index: 10000 !important;">
+                                  <share-buttons 
+                                    theme="modern-dark"
+                                    [exclude]="['reddit','tumblr','mix','vk','telegram','messenger','whatsapp','xing','line','sms','email','print','copy']" 
+                                    [show]="4"
+                                    [size]="-4" 
+                                    [showText]="true" >
+                                  </share-buttons>
+                                </div>      
+                              </popover-content>
+                          </div>
+                        </div>  
+                    </div>
+                  </div>
+              </div>
+          </ngx-slick-carousel>
+        </div>  
+      <!-- </div>
+    </div>
+</div> -->
+
+
+<ng-template class="modal rollIn animated" #content let-modal>
+  <div class="modal-header" style="background-color: #ff7900">
+    <h4 class="modal-title" id="modal-basic-title">{{CekOrTestDetail.package_name}}</h4>
+    <button type="button" class="close animated" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+          
+    <p>Dapatkan test gratis ini</p> 
+    <div class="row my-1">
+      <div class="col-md-6">
+        <div class="form-group">
+          <button class="btn btn-danger form-control" (click)="modal.close('Save click')">Batal</button>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="form-group">
+          <button class="btn btn-success form-control" (click)="postFreeTes(contentId)">Dapatkan</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal-footer" style="background-color: #ff7900; padding: 1px 0px !important">
+    <!-- <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Ok</button> -->
+  </div>
+</ng-template>
+
+
+<ng-template class="modal rollIn animated" #contentId let-modal>
+    <div class="modal-header" style="background-color: #ff7900">
+      <h4 class="modal-title" id="modal-basic-title">{{CekOrTestDetail.package_name}}</h4>
+      <button type="button" class="close animated" aria-label="Close" (click)="modal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+            
+      <p>Dapatkan test gratis ini</p> 
+      <div class="row my-1">
+        <div class="col-md-6">
+          <div class="form-group">
+            <button class="btn btn-danger form-control" (click)="modal.close('Save click')">Batal</button>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group">
+            <button class="btn btn-success form-control" (click)="postFreeTes()" data-dismiss="modal">Dapatkan</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+    <div class="modal-footer" style="background-color: #ff7900; padding: 1px 0px !important">
+      <!-- <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Ok</button> -->
+    </div>
+  </ng-template>
+
+  

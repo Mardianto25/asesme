@@ -1,0 +1,21 @@
+.class-img {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%
+}
+
+@media  (min-width : 767px) and (max-width : 1024px) {
+    .class-img {
+        width: 85px !important;
+        height: 85px !important;
+        border-radius: 50%
+    }
+}
+
+@media (max-width: 767px) {
+    .class-img {
+        width: 180px;
+        height: 180px;
+        border-radius: 50%
+    }
+}

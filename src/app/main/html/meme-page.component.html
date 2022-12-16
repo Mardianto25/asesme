@@ -1,0 +1,60 @@
+<!-- <div class="container">
+    <div class="row pt-5 pb-5">
+      <div class="col-md-3 mb-2">
+          <app-sidebar-profile></app-sidebar-profile>
+      </div>
+  
+      <div class="col-md-9 "> -->
+        <div class="row mb-5" style="height: auto;">
+          <div class="col-md-12">
+            <nav aria-label="breadcrumb">
+              <ol class="breadcrumb" style="background-color:transparent">
+                <li class="breadcrumb-item"><a routerLink="../dashboard">Home</a></li>
+                <li class="breadcrumb-item"><a >Semua Hiburan</a></li>
+              </ol>
+            </nav>
+            <!-- <h6>Home   <i class="fa fa-angle-right fa-font"></i>  Semua Lowongan Pekerjaan </h6>
+            <hr /> -->
+            <h5><strong> Semua Hiburan </strong></h5>
+          </div>  
+        </div>
+
+
+        <div class="row my-2" 
+          infiniteScroll [infiniteScrollDistance]="2" [infiniteScrollThrottle]="50" (scrolled)="onScroll()" [scrollWindow]="false"
+          style="height: 700px; overflow-y: scroll; overflow-x: hidden"
+          >
+          
+          <div class="col-md-6 my-2" *ngFor="let meme of master.itemsToShow ">
+
+            <div class="card" style="width: auto;" >
+              <img class="card-img-top" src={{meme.images}} alt="Card image cap">
+              <div class="card-body">
+                <div class="row">
+                  <div class="col-md-6">
+                    <a href={{meme.images}} target="_blank"><button class="btn btn-primary btn-block mt-3"><i class="fa fa-download"></i>Simpan</button></a>
+                  </div>
+                  <div class="col-md-6">
+                    <button class="btn btn-light btn-block mt-3" [ngbPopover]="popContent" container="body"><i class="fa fa-download"></i>Share</button>
+                    <ng-template #popContent >
+                      <share-buttons 
+                        theme="modern-dark"
+                        [exclude]="['reddit','tumblr','mix','vk','telegram','messenger','whatsapp','xing','line','sms','email','print','copy']" 
+                        [show]="4"
+                        [size]="-4" 
+                        [showText]="true" 
+                        [url]="meme.images"
+                        [showCount]="true"
+                        [autoSetMeta]="false" >
+                      </share-buttons>
+                    </ng-template>
+
+                    
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+      <!-- </div>
+    </div>
+</div> -->
